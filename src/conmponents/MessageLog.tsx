@@ -38,11 +38,9 @@ export const MessageList = ({ messages }: { messages: MessageLog[] }) => {
     scrollToBottom();
   }, [messages]);
 
-  console.log("🚀 ~ file: MessageLog.tsx:40 ~ MessageList ~ messages:", messages)
-
   return (
     <div className="max-h-[370px] overflow-y-scroll pb-4 scrollbar-hide" ref={scrollRef}>
-      {messages.map((message, index) => Message(message))}
+      {messages.map((message, index) => <div key={index}>{Message(message)}</div>)}
     </div>
   )
 }
