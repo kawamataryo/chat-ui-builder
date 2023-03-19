@@ -9,7 +9,6 @@ const Header = () => {
           Speak With God Now!
         </span>
       </div>
-    </div>
   );
 };
 export default Header;
