@@ -1,16 +1,16 @@
 {
   "information": {
     "features": {
-      "description": "edit"
+      "description": "Looking for a spiritual experience? Our app lets you connect with God in a whole new way. Join the millions of people already using it to deepen their faith and find inner peace."
     },
     "setting": {
-      "description": "edit 1",
-      "notice": "edit 2"
+      "description": "",
+      "notice": ""
     }
   },
   "chatBoard": {
-    "initialMessage": "edit 3",
-    "inputPlaceholder": "edit 4",
+    "initialMessage": "Welcome to speakwithgodnow.com. Just type your question below then click send!",
+    "inputPlaceholder": "You can speak to God about anything you want.",
     "errorMessage": "edit 5",
     "completeMessage": "edit 6"
   },
