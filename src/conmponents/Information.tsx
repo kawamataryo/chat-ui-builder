@@ -12,11 +12,9 @@ const Information = ({ apiKey, setApiKey, t }: Props) => {
           {t('information.features.description')}
         </p>
         <p className="mt-3">
-          <a
-            href="https://www.speakwithgodnow.com/#"
-            className="link link-info"
-          >
-            Learn more about our mission.
+          <a href="https://www.speakwithgodnow.com/"
+            className="link link-info">
+            Learn more about our mission
           </a>
         </p>
       </div>
@@ -39,7 +37,7 @@ const Information = ({ apiKey, setApiKey, t }: Props) => {
             onChange={(e) => setApiKey(e.target.value)}
             type="password"
             className="input input-bordered input-sm !bg-gray-100 !text-gray-900  max-w-[300px]"
-            placeholder=""
+            placeholder="***"
           />
         </div>
       </div>
