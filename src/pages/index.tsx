@@ -43,7 +43,7 @@ export default function Home() {
       ]);
       setMessage("");
 
-      const res = await fetch("http://localhost:3000/api/openai", {
+      const res = await fetch("/api/openai", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -118,13 +118,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div className="container mx-auto" style={{ height: "100svh" }}>
+        <div className="container mx-auto px-5" style={{ height: "100svh" }}>
           <Header />
           <Setting
             apiKey={setting.apiKey}
             setApiKey={(v) => setSetting({ ...setting, apiKey: v })}
           />
-          <div className="grid grid-cols-2 gap-5 py-10">
+          <div className="grid sm:grid-cols-2 gap-5 py-10">
             <div className="flex flex-col justify-end h-full w-full">
               <div className="bg-slate-800 p-3 h-full flex flex-col justify-end mb-2">
                 <MessageList messages={messageLog} />
