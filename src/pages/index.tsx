@@ -126,7 +126,11 @@ export default function Home() {
                 t={t}
               ></ChatBoard>
             </div>
-            </main>
+            <div className="relative">
+         
+          </div>
+        </div>
+      </main>
     </>
   );
 }
