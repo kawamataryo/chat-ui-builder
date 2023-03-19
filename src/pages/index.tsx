@@ -9,6 +9,8 @@ import { updateProject, embedProject } from "@/utils/stackBlitzClient";
 import ChatBoard from "@/conmponents/ChatBoard";
 import EmbedBoard from "@/conmponents/EmbedBoard";
 import CoverImage from "@/conmponents/CoverImage";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from "next-i18next";
 
 export default function Home() {
   const [chatHistory, setChatHistory] = useState<any[]>([]);
@@ -18,6 +20,8 @@ export default function Home() {
     apiKey: "",
   });
   const [messageLog, setMessageLog] = useState<MessageLog[]>([]);
+
+  const { t, i18n } = useTranslation('common')
 
   const updateMessageLog = (role: MessageRole, content: string) => {
     setMessageLog((prevMessageLog) => [
@@ -42,6 +46,7 @@ export default function Home() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          locale: i18n.language,
           apiKey: setting.apiKey,
           prompt: message,
           chatHistory: chatHistory.length
@@ -64,12 +69,12 @@ export default function Home() {
 
       await updateProject(resJson.code);
 
-      updateMessageLog(MESSAGE_ROLE.GPT, "完了しました");
+      updateMessageLog(MESSAGE_ROLE.GPT, t('chatBoard.completeMessage'));
     } catch (error) {
       console.error(error);
       updateMessageLog(
         MESSAGE_ROLE.GPT,
-        "すいません。Errorが発生しました。devtoolsでerrorを確認してください。"
+        t('chatBoard.errorMessage')
       );
     } finally {
       setLoading(false);
@@ -81,7 +86,7 @@ export default function Home() {
     setMessageLog([
       {
         role: MESSAGE_ROLE.GPT,
-        content: "何を作りますか？",
+        content: t('chatBoard.initialMessage'),
         createdAt: dayjs().format(DATE_FORMAT),
       },
     ]);
@@ -107,6 +112,7 @@ export default function Home() {
           <Information
             apiKey={setting.apiKey}
             setApiKey={(v) => setSetting({ ...setting, apiKey: v })}
+            t={t}
           />
           <div className="grid sm:grid-cols-2 gap-5 py-10">
             <div className="flex flex-col justify-end h-full w-full">
@@ -117,6 +123,7 @@ export default function Home() {
                 submit={submit}
                 initialize={initialize}
                 loading={loading}
+                t={t}
               ></ChatBoard>
             </div>
             <div className="relative">
@@ -127,4 +134,15 @@ export default function Home() {
       </main>
     </>
   );
+}
+
+
+export async function getStaticProps({ locale }: any) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, [
+        'common',
+      ])),
+    },
+  }
 }

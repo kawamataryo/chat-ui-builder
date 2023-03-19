@@ -1,4 +1,6 @@
 import { SYSTEM_PROMPT } from '../../utils/constants';
+import EnLocale from '../../../public/locales/en/common.json';
+import JaLocale from '../../../public/locales/ja/common.json';
 
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
@@ -12,6 +14,7 @@ type Data = {
 }
 
 type RequestBody = {
+  locale: string
   prompt: string
   chatHistory: { role: ChatCompletionRequestMessageRoleEnum; content: string }[]
   apiKey?: string
@@ -27,11 +30,14 @@ export default async function handler(
 ) {
   if (req.method === 'POST') {
     try {
-    const { prompt, chatHistory, apiKey } = req.body;
+    const { prompt, chatHistory, apiKey, locale } = req.body;
     const safeApiKey = apiKey || process.env.OPEN_AI_API_KEY;
+    const isJa = locale === 'ja';
+    const localeTexts = isJa ? JaLocale : EnLocale;
+    const systemPrompt = isJa ? SYSTEM_PROMPT.JA : SYSTEM_PROMPT.EN;
 
     if(!safeApiKey) {
-      res.status(200).json({ content: "API Keyが設定されていません" })
+      res.status(200).json({ content: localeTexts.api.apiKeyNotSet })
     }
 
     const configuration = new Configuration({
@@ -42,9 +48,9 @@ export default async function handler(
     const completion = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages: [
-        { role: "system", content: SYSTEM_PROMPT },
+        { role: "system", content: systemPrompt },
         ...chatHistory,
-        { role: "user", content: `指示: ${prompt}` }
+        { role: "user", content: `${localeTexts.api.apiKeyNotSet}: ${prompt}` }
       ]
     });
     const assistantResponse = completion.data.choices[0].message?.content;

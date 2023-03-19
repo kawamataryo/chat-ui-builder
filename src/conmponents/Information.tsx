@@ -1,36 +1,36 @@
 type Props = {
   apiKey: string;
   setApiKey: (apiKey: string) => void;
+  t: (key: string) => string;
 };
-const Information = ({ apiKey, setApiKey }: Props) => {
+const Information = ({ apiKey, setApiKey, t }: Props) => {
   return (
     <div className="mt-8 text-white grid sm:grid-cols-2 gap-5">
       <div>
         <p className="text-2xl font-bold">✨ Features</p>
         <p className="mt-2">
-          ChatGPTとStackBlitzを使って、チャットで作りたいものを入力すると、StackBlitz上で実現してくれるツールです。実装は全て以下リポジトリで公開しています。
+          {t('information.features.description')}
         </p>
         <p className="mt-3">
           <a
-            href="https://github.com/kawamataryo/chatgpt-stackblitz-playground"
+            href="https://github.com/kawamataryo/chat-builder"
             className="link link-info"
           >
-            kawamataryo/chatgpt-stackblitz-playground
+            kawamataryo/chat-builder
           </a>
         </p>
       </div>
       <div>
         <p className="text-2xl font-bold">🛠️ Setting</p>
         <p className="mt-2">
-          OpenAI の API Key を設定してください。入力されたAPI
-          Keyを使って、ChatGPT APIと連携します。
+          {t('information.setting.description')}
         </p>
-        <div className="form-control max-w-[450px]">
+        <div className="form-control">
           <label className="label">
             <span className="label-text text-gray-50">
               API Key
               <span className="text-xs text-gray-400 ml-3">
-                ※ 自分の無料枠が残っている間は、API Keyを入力しなくても使えます。
+                ※ {t('information.setting.notice')}
               </span>
             </span>
           </label>
@@ -38,7 +38,7 @@ const Information = ({ apiKey, setApiKey }: Props) => {
             value={apiKey}
             onChange={(e) => setApiKey(e.target.value)}
             type="password"
-            className="input input-bordered input-sm !bg-gray-100 !text-gray-900"
+            className="input input-bordered input-sm !bg-gray-100 !text-gray-900  max-w-[300px]"
             placeholder="*****************"
           />
         </div>

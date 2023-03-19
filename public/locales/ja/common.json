@@ -1,0 +1,22 @@
+{
+  "initialMessage": "何を作りたいですか？",
+  "information": {
+    "features": {
+      "description": "ChatGPTを使って、チャットで作りたいものを入力すると、StackBlitz上で実現してくれるツールです。実装は全て以下リポジトリで公開しています。"
+    },
+    "setting": {
+      "description": "OpenAI の API Key を設定してください。入力されたAPI Keyを使って、ChatGPT APIと連携します。",
+      "notice": "作者のAPIの無料枠が残っている間はAPIキーを設定せずとも動作します"
+    }
+  },
+  "chatBoard": {
+    "initialMessage": "何を作りますか？",
+    "inputPlaceholder": "例）SNSの登録フォームを作って",
+    "errorMessage": "おっと、エラーが発生しました。DevToolsのコンソールを確認してください",
+    "completeMessage": "作成しました"
+  },
+  "api": {
+    "apiKeyNotSet": "API Key is not set",
+    "promptPrefix": "instruction"
+  }
+}

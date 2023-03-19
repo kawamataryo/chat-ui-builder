@@ -9,9 +9,18 @@ type Props = {
   setMessage: (message: string) => void;
   submit: () => void;
   initialize: () => void;
-}
+  t: (key: string) => string;
+};
 
-const ChatBoard = ({ message, loading, messageLog, setMessage, submit, initialize}: Props) => {
+const ChatBoard = ({
+  message,
+  loading,
+  messageLog,
+  setMessage,
+  submit,
+  initialize,
+  t,
+}: Props) => {
   const handleKeyDown = (event: KeyboardEvent) => {
     const isCmdEnter =
       (event.metaKey || event.ctrlKey) && event.key === "Enter";
@@ -32,7 +41,7 @@ const ChatBoard = ({ message, loading, messageLog, setMessage, submit, initializ
           onKeyDown={handleKeyDown}
           value={message}
           className="textarea w-full !bg-gray-100 !text-gray-900"
-          placeholder="（例) SNSの登録フォームを作って"
+          placeholder={t("chatBoard.inputPlaceholder")}
         ></textarea>
         <button
           className="btn btn-active bg-gradient-to-r disabled:from-cyan-800 disabled:to-blue-900 from-cyan-500 to-blue-500 text-white disabled:text-gray-400 w-full"
