@@ -55,7 +55,6 @@ export default async function handler(
       });
       const assistantResponse = completion.data.choices[0].message?.content;
 
-      // コードブロックを抽出
       const codeBlockPattern = /```html\n([\s\S]+?)\r?\n```/
       const matchResult = assistantResponse?.match(codeBlockPattern)
 
