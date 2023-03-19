@@ -10,17 +10,29 @@ const Information = ({ apiKey, setApiKey }: Props) => {
         <p className="mt-2">
           ChatGPTとStackBlitzを使って、チャットで作りたいものを入力すると、StackBlitz上で実現してくれるツールです。実装は全て以下リポジトリで公開しています。
         </p>
-        <p className="mt-3"><a href="https://github.com/kawamataryo/chatgpt-stackblitz-playground" className="link link-info">kawamataryo/chatgpt-stackblitz-playground</a></p>
+        <p className="mt-3">
+          <a
+            href="https://github.com/kawamataryo/chatgpt-stackblitz-playground"
+            className="link link-info"
+          >
+            kawamataryo/chatgpt-stackblitz-playground
+          </a>
+        </p>
       </div>
       <div>
         <p className="text-2xl font-bold">🛠️ Setting</p>
         <p className="mt-2">
-          OpenAI の API Key を設定してください。入力されたAPI Keyを使って、ChatGPT
-          APIと連携します。
+          OpenAI の API Key を設定してください。入力されたAPI
+          Keyを使って、ChatGPT APIと連携します。
         </p>
-        <div className="form-control max-w-[300px]">
+        <div className="form-control max-w-[450px]">
           <label className="label">
-            <span className="label-text text-gray-50">API Key</span>
+            <span className="label-text text-gray-50">
+              API Key
+              <span className="text-xs text-gray-400 ml-3">
+                ※ 自分の無料枠が残っている間は、API Keyを入力しなくても使えます。
+              </span>
+            </span>
           </label>
           <input
             value={apiKey}
@@ -30,9 +42,6 @@ const Information = ({ apiKey, setApiKey }: Props) => {
             placeholder="*****************"
           />
         </div>
-        <span className="text-xs text-gray-400">
-          ※ API Keyは保存されません。ChatGPT APIの利用のみに使われます。
-        </span>
       </div>
     </div>
   );
