@@ -1,7 +1,8 @@
+import { SYSTEM_PROMPT } from './../../utils/constants';
 
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { Configuration, OpenAIApi, ChatCompletionRequestMessage } from "openai";
+import { Configuration, OpenAIApi } from "openai";
 
 type Data = {
   content?: string
@@ -9,19 +10,6 @@ type Data = {
   hasError?: boolean
   errorMessage?: string
 }
-
-const systemPrompt = `
-# 命令書:
-あなたは世界最高のフロントエンドエンジニアです。
-以下の制約条件を満たした上で、最高のコードを書いてください。
-
-# 制約条件:
-1. bodyタグの直下に挿入される想定で書いてください。
-2. プロジェクト内では、TailwindCSSが使えます。要素をスタイリングする際は、TailwindCSSのクラスを使ってください。
-3. 出力するオブジェクトは必ずマークダウンのhtmlコードブロックで囲んでください。例: \`\`\`html\nコード\n\`\`\`
-4. JavaScriptが必要になった場合でも、必ずマークアップと同じhtmlコードブロックの内部にインライン要素として記述してください囲んでください。
-5. どんなに長いコードでも必ず一つのhtmlコードブロックに収めてください。
-`
 
 export default async function handler(
   req: NextApiRequest,
@@ -43,7 +31,7 @@ export default async function handler(
     const completion = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages: [
-        { role: "system", content: systemPrompt },
+        { role: "system", content: SYSTEM_PROMPT },
         ...chatHistory,
         { role: "user", content: `指示: ${prompt}` }
       ]

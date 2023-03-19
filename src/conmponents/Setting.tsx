@@ -10,7 +10,7 @@ const Setting = ({apiKey, setApiKey}: Props) => {
         OpenAI API Keyを入力してください。入力されたAPI
         Keyを使って、ChatGPT APIと連携します。
       </p>
-      <span className="text-xs text-gray-400">※ API Keyは保存されません。ChatGPT APIの利用のみに使われます。詳細はStackBlitz上のコードを確認してください。</span>
+      <span className="text-xs text-gray-400">※ API Keyは保存されません。ChatGPT APIの利用のみに使われます。詳細は<a href="">StackBlitz上のコード</a>を確認してください。</span>
 
       <div className="form-control max-w-[300px]">
         <label className="label">
