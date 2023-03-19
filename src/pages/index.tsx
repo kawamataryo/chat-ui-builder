@@ -5,7 +5,7 @@ import {
   EMBED_TARGET_ID,
   MESSAGE_ROLE,
 } from "@/utils/constants";
-import { MessageLog } from "@/utils/types";
+import { MessageLog, MessageRole } from "@/utils/types";
 import { MessageList } from "@/conmponents/MessageLog";
 import dayjs from "dayjs";
 import Header from "@/conmponents/Header";
@@ -29,18 +29,21 @@ export default function Home() {
       submit();
     }
   };
+  const updateMessageLog = (role: MessageRole, content: string) => {
+      setMessageLog((prevMessageLog) => [
+        ...prevMessageLog,
+        {
+          role,
+          content,
+          createdAt: dayjs().format(DATE_FORMAT),
+        },
+      ]);
+    }
 
   const submit = async () => {
     setLoading(true);
     try {
-      setMessageLog((prevMessageLog) => [
-        ...prevMessageLog,
-        {
-          role: MESSAGE_ROLE.USER,
-          content: message,
-          createdAt: dayjs().format(DATE_FORMAT),
-        },
-      ]);
+      updateMessageLog(MESSAGE_ROLE.USER, message)
       setMessage("");
 
       const res = await fetch("/api/openai", {
@@ -65,37 +68,16 @@ export default function Home() {
       ]);
 
       if (!resJson.code) {
-        setMessageLog((prevMessageLog) => [
-          ...prevMessageLog,
-          {
-            role: MESSAGE_ROLE.GPT,
-            content: resJson.content,
-            createdAt: dayjs().format(DATE_FORMAT),
-          },
-        ]);
+        updateMessageLog(MESSAGE_ROLE.GPT, resJson.content)
         return;
       }
 
       await updateProject(resJson.code);
 
-      setMessageLog((prevMessageLog) => [
-        ...prevMessageLog,
-        {
-          role: MESSAGE_ROLE.GPT,
-          content: "完了しました",
-          createdAt: dayjs().format(DATE_FORMAT),
-        },
-      ]);
+      updateMessageLog(MESSAGE_ROLE.GPT, "完了しました")
     } catch (error) {
       console.error(error);
-      setMessageLog((prevMessageLog) => [
-        ...prevMessageLog,
-        {
-          role: MESSAGE_ROLE.GPT,
-          content: "すいません。Errorが発生しました。devtoolsでerrorを確認してください。",
-          createdAt: dayjs().format(DATE_FORMAT),
-        },
-      ]);
+      updateMessageLog(MESSAGE_ROLE.GPT, "すいません。Errorが発生しました。devtoolsでerrorを確認してください。")
     } finally {
       setLoading(false);
     }
