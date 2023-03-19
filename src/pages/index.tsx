@@ -12,7 +12,7 @@ import { MessageList } from "@/conmponents/MessageLog";
 import dayjs from "dayjs";
 import Header from "@/conmponents/Header";
 import Setting from "@/conmponents/Setting";
-import { updateProject } from "@/utils/stackBlitzClient";
+import { updateProject, embedProject } from "@/utils/stackBlitzClient";
 
 export default function Home() {
   const [chatHistory, setChatHistory] = useState<any[]>([]);
@@ -101,15 +101,8 @@ export default function Home() {
     }
   };
 
-  const embed = async () => {
-    await sdk.embedProjectId("embed", STACK_BLITZ_PROJECT_ID, {
-      openFile: "index.html",
-      view: "preview",
-    });
-  };
-
   useEffect(() => {
-    embed();
+    embedProject(EMBED_TARGET_ID);
   }, []);
 
   return (
