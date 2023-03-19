@@ -5,7 +5,7 @@ const Header = () => {
     <div className="mt-5 text-white">
       <div className="flex text-4xl items-center gap-2 flex-col sm:flex-row">
         <span className="flex items-center gap-2 font-bold">
-          <Image src="/logo1.png" width={250} height={150} className="inline-block" alt=""/>
+          <Image src="/logo1.png" width={150} height={75} className="inline-block" alt=""/>
           Speak With God Now!
         </span>
       </div>
