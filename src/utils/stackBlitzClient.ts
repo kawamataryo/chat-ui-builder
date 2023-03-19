@@ -25,8 +25,8 @@ export const updateProject = async (embedCode: string) => {
   });
 };
 
-export const embedProject = async (embedCode: string) => {
-    await sdk.embedProjectId(EMBED_TARGET_ID, STACK_BLITZ_PROJECT_ID, {
+export const embedProject = async (embedTargetId: string) => {
+    await sdk.embedProjectId(embedTargetId, STACK_BLITZ_PROJECT_ID, {
       openFile: "index.html",
       view: "preview",
     });

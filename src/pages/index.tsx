@@ -1,11 +1,9 @@
 import Head from "next/head";
-import sdk from "@stackblitz/sdk";
 import { useEffect, useState, KeyboardEvent } from "react";
 import {
   DATE_FORMAT,
   EMBED_TARGET_ID,
   MESSAGE_ROLE,
-  STACK_BLITZ_PROJECT_ID,
 } from "@/utils/constants";
 import { MessageLog } from "@/utils/types";
 import { MessageList } from "@/conmponents/MessageLog";
@@ -21,13 +19,7 @@ export default function Home() {
   const [setting, setSetting] = useState({
     apiKey: "",
   });
-  const [messageLog, setMessageLog] = useState<MessageLog[]>([
-    {
-      role: MESSAGE_ROLE.GPT,
-      content: "何を作りますか？",
-      createdAt: dayjs().format(DATE_FORMAT),
-    },
-  ]);
+  const [messageLog, setMessageLog] = useState<MessageLog[]>([]);
 
   const handleKeyDown = (event: KeyboardEvent) => {
     const isCmdEnter =
@@ -101,8 +93,20 @@ export default function Home() {
     }
   };
 
-  useEffect(() => {
+  const initialize = () => {
+    setChatHistory([])
+    setMessageLog([
+      {
+        role: MESSAGE_ROLE.GPT,
+        content: "何を作りますか？",
+        createdAt: dayjs().format(DATE_FORMAT),
+      },
+    ])
     embedProject(EMBED_TARGET_ID);
+  }
+
+  useEffect(() => {
+    initialize();
   }, []);
 
   return (
@@ -140,6 +144,7 @@ export default function Home() {
                 >
                   Submit
                 </button>
+                <button onClick={initialize}>reset</button>
               </div>
             </div>
             <div className="relative">
