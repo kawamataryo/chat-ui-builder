@@ -13,14 +13,14 @@ const Information = ({ apiKey, setApiKey, t }: Props) => {
         </p>
         <p className="mt-3">
           <a
-            href=""
+            href="https://github.com/kawamataryo/chat-builder"
             className="link link-info"
           >
-           
+            kawamataryo/chat-builder
           </a>
         </p>
       </div>
-           <div>
+      <div>
         <p className="text-2xl font-bold">🛠️ Setting</p>
         <p className="mt-2">
           {t('information.setting.description')}
