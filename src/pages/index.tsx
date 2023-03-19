@@ -127,8 +127,7 @@ export default function Home() {
               ></ChatBoard>
             </div>
             <div className="relative">
-              <EmbedBoard loading={loading} />
-            </div>
+         
           </div>
         </div>
       </main>
