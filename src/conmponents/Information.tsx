@@ -2,18 +2,18 @@ type Props = {
   apiKey: string;
   setApiKey: (apiKey: string) => void;
 };
-const Setting = ({ apiKey, setApiKey }: Props) => {
+const Information = ({ apiKey, setApiKey }: Props) => {
   return (
     <div className="mt-8 text-white grid sm:grid-cols-2 gap-5">
       <div>
         <p className="text-2xl font-bold">✨ Features</p>
         <p className="mt-2">
-          ChatGPTとStackBlitzを連携させて、ChatGPTに自然言語で作りたいものを伝えると、StackBlitz上のプロジェクトで実現してくれるツールです。実装は全て以下のリポジトリで公開しています。
+          ChatGPTとStackBlitzを連携させて、ChatGPTに自然言語で作りたいものを伝えると、StackBlitz上のプロジェクトで実現してくれるツールです。実装は全て以下リポジトリで公開しています。
         </p>
         <p className="mt-3"><a href="https://github.com/kawamataryo/chatgpt-stackblitz-playground" className="link link-info">kawamataryo/chatgpt-stackblitz-playground</a></p>
       </div>
       <div>
-        <p className="text-2xl font-bold">🛠️ How to use</p>
+        <p className="text-2xl font-bold">🛠️ Setting</p>
         <p className="mt-2">
           OpenAI の API Key を下部の入力欄に設定してください。入力されたAPI Keyを使って、ChatGPT
           APIと連携します。
@@ -38,4 +38,4 @@ const Setting = ({ apiKey, setApiKey }: Props) => {
     </div>
   );
 };
-export default Setting;
+export default Information;

@@ -3,7 +3,7 @@ export const MESSAGE_ROLE = {
   USER: 'user',
 } as const
 
-export const STACK_BLITZ_PROJECT_ID = 'stackblitz-chatgpt-playground'
+export const STACK_BLITZ_PROJECT_ID = 'chat-builder-playground'
 
 export const EMBED_TARGET_ID = "embed"
 

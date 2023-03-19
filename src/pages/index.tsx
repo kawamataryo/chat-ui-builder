@@ -9,7 +9,7 @@ import { MessageLog, MessageRole } from "@/utils/types";
 import { MessageList } from "@/conmponents/MessageLog";
 import dayjs from "dayjs";
 import Header from "@/conmponents/Header";
-import Setting from "@/conmponents/Setting";
+import Information from "@/conmponents/Information";
 import { updateProject, embedProject } from "@/utils/stackBlitzClient";
 
 export default function Home() {
@@ -110,13 +110,13 @@ export default function Home() {
       <main>
         <div className="container mx-auto px-5" style={{ height: "100svh" }}>
           <Header />
-          <Setting
+          <Information
             apiKey={setting.apiKey}
             setApiKey={(v) => setSetting({ ...setting, apiKey: v })}
           />
           <div className="grid sm:grid-cols-2 gap-5 py-10">
             <div className="flex flex-col justify-end h-full w-full">
-              <div className="bg-slate-800 p-3 h-full flex flex-col justify-end mb-2">
+              <div className="bg-gray-700 p-3 h-full flex flex-col justify-end mb-2 rounded-lg">
                 <MessageList messages={messageLog} />
               </div>
               <div className="">
@@ -134,7 +134,7 @@ export default function Home() {
                 >
                   Submit
                 </button>
-                <button onClick={initialize}>reset</button>
+                <button onClick={initialize}>Reset Chat</button>
               </div>
             </div>
             <div className="relative">
