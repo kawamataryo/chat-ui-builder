@@ -25,7 +25,7 @@ export default function Home() {
     const isCmdEnter =
       (event.metaKey || event.ctrlKey) && event.key === "Enter";
 
-    if (isCmdEnter) {
+    if (isCmdEnter && message && !loading) {
       submit();
     }
   };
