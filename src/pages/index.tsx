@@ -100,7 +100,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Chat Builder</title>
+        <title>Chat UI Builder</title>
         <meta name="description" content="Create interactive UI with chat gpt" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
