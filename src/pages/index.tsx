@@ -29,6 +29,7 @@ export default function Home() {
       submit();
     }
   };
+
   const updateMessageLog = (role: MessageRole, content: string) => {
       setMessageLog((prevMessageLog) => [
         ...prevMessageLog,
@@ -46,7 +47,7 @@ export default function Home() {
       updateMessageLog(MESSAGE_ROLE.USER, message)
       setMessage("");
 
-      const res = await fetch("/api/openai", {
+      const res = await fetch("/api/generate_code", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
