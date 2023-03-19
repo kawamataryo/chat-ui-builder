@@ -2,7 +2,7 @@ import { MESSAGE_ROLE } from '@/utils/constants';
 import { MessageLog } from '@/utils/types';
 import { useEffect, useRef } from 'react';
 
-const Message = ({ role, content, createdAt }: MessageLog)  => {
+const Message = ({ role, content, createdAt }: MessageLog, index: number)  => {
   const isUser = role === MESSAGE_ROLE.USER
   const positionClass = isUser ? 'chat-end' : 'chat-start'
   const iconClass = isUser ? 'bg-gradient-to-r from-[#ada996] to-[#eaeaea]' : 'bg-gradient-to-r from-cyan-500 to-blue-500'
@@ -10,7 +10,7 @@ const Message = ({ role, content, createdAt }: MessageLog)  => {
 
   return (
     <>
-    <div className={`${positionClass} chat`}>
+    <div className={`${positionClass} chat`} key={index}>
       <div className="chat-image avatar">
         <div className={`${iconClass} w-8 h-8 rounded-full !grid place-items-center`}>
           {roleIcon}
@@ -42,7 +42,7 @@ export const MessageList = ({ messages }: { messages: MessageLog[] }) => {
 
   return (
     <div className="max-h-[370px] overflow-y-scroll pb-4 scrollbar-hide" ref={scrollRef}>
-      {messages.map((message, index) => Message(message))}
+      {messages.map((message, index) => Message(message, index))}
     </div>
   )
 }
