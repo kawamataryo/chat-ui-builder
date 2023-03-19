@@ -87,7 +87,15 @@ export default function Home() {
         },
       ]);
     } catch (error) {
-      console.log("🚀 ~ file: index.tsx:15 ~ changeFile ~ error", error);
+      console.error(error);
+      setMessageLog((prevMessageLog) => [
+        ...prevMessageLog,
+        {
+          role: MESSAGE_ROLE.GPT,
+          content: "すいません。Errorが発生しました。devtoolsでerrorを確認してください。",
+          createdAt: dayjs().format(DATE_FORMAT),
+        },
+      ]);
     } finally {
       setLoading(false);
     }
