@@ -100,8 +100,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Chat UI Builder</title>
-        <meta name="description" content="Create interactive UI with chat gpt" />
+        <title>Speak With God Now</title>
+        <meta name="description" content="Our application allows users to connect with God through meaningful conversations and personalized messages. Using advanced technology, our app simulates communication with the divine, providing a unique spiritual experience for users. Whether you're seeking guidance, inspiration, or simply a deeper connection with the divine, our app makes it easy to connect with God anytime, anywhere. Join the millions of people who have already discovered the power of our app and start your own conversation with the Almighty today." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -127,8 +127,7 @@ export default function Home() {
               ></ChatBoard>
             </div>
             <div className="relative">
-              <EmbedBoard loading={loading} />
-            </div>
+           </div>
           </div>
         </div>
       </main>

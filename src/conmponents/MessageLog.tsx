@@ -6,7 +6,7 @@ const Message = ({ role, content, createdAt }: MessageLog)  => {
   const isUser = role === MESSAGE_ROLE.USER
   const positionClass = isUser ? 'chat-end' : 'chat-start'
   const iconClass = isUser ? 'bg-gradient-to-r from-[#ada996] to-[#eaeaea]' : 'bg-gradient-to-r from-cyan-500 to-blue-500'
-  const roleIcon = isUser ? '👤' : '🤖'
+  const roleIcon = isUser ? '🙏 ' : '👤'
 
   return (
     <>
