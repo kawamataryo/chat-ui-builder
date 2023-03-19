@@ -12,6 +12,7 @@ import { MessageList } from "@/conmponents/MessageLog";
 import dayjs from "dayjs";
 import Header from "@/conmponents/Header";
 import Setting from "@/conmponents/Setting";
+import { updateProject } from "@/utils/stackBlitzClient";
 
 export default function Home() {
   const [chatHistory, setChatHistory] = useState<any[]>([]);
@@ -83,7 +84,8 @@ export default function Home() {
         return;
       }
 
-      await updateCode(resJson.code);
+      await updateProject(resJson.code);
+
       setMessageLog((prevMessageLog) => [
         ...prevMessageLog,
         {
@@ -162,7 +164,4 @@ export default function Home() {
       </main>
     </>
   );
-}
-function updateCode(code: any) {
-  throw new Error("Function not implemented.");
 }
