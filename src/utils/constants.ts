@@ -3,8 +3,6 @@ export const MESSAGE_ROLE = {
   USER: 'user',
 } as const
 
-export const EMBED_TARGET_ID = "embed"
-
 export const DATE_FORMAT = "MM-DD HH:mm:ss";
 
 export const SYSTEM_PROMPT = {
