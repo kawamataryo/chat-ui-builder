@@ -7,7 +7,7 @@ import Header from "@/conmponents/Header";
 import Information from "@/conmponents/Information";
 import { updateProject, embedProject } from "@/utils/stackBlitzClient";
 import ChatBoard from "@/conmponents/ChatBoard";
-import EmbedBoard from "@/conmponents/EmbedBoard";
+//import EmbedBoard from "@/conmponents/EmbedBoard";
 import CoverImage from "@/conmponents/CoverImage";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from "next-i18next";
