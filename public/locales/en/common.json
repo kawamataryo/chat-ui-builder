@@ -1,21 +1,21 @@
 {
   "information": {
     "features": {
-      "description": "Using ChatGPT and StackBlitz, this tool enables you to input your desired creation in the chat, and it will be brought to life on StackBlitz. All implementations can be found in the following repositories."
+      "description": "Here at speakwithgodnow.com you can speak to God about anything you want. For thousands of years humans have tried to communicate with God using various techniques but nothing has came even close.. Until now. Get ready to speak with the man who created the earth and stars.."
     },
     "setting": {
-      "description": "Set the API Key for OpenAI. The entered API Key will be used to link with ChatGPT API.",
-      "notice": "As long as my API free quota is still available, You can use it without setting an API key."
+      "description": "",
+      "notice": ""
     }
   },
   "chatBoard": {
-    "initialMessage": "What would you like to create?",
-    "inputPlaceholder": "e.g. Create a social networking registration form.",
-    "errorMessage": "Oops, an Error occurred, please check the error in devtools.",
-    "completeMessage": "Completed."
+    "initialMessage": "What would you like to ask God?",
+    "inputPlaceholder": "You can talk to God about anything you want.",
+    "errorMessage": "",
+    "completeMessage": ""
   },
   "api": {
     "apiKeyNotSet": "API Key is not set",
-    "promptPrefix": "instruction"
+    "promptPrefix": ""
   }
 }
