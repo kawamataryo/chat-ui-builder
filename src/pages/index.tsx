@@ -127,7 +127,7 @@ export default function Home() {
               ></ChatBoard>
             </div>
             <div className="relative">
-         
+           </div>
           </div>
         </div>
       </main>
