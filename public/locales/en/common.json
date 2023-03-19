@@ -1,21 +1,21 @@
 {
   "information": {
     "features": {
-      "description": "Using ChatGPT and StackBlitz, this tool enables you to input your desired creation in the chat, and it will be brought to life on StackBlitz. All implementations can be found in the following repositories."
+      "description": "edit"
     },
     "setting": {
-      "description": "Set the API Key for OpenAI. The entered API Key will be used to link with ChatGPT API.",
-      "notice": "As long as my API free quota is still available, You can use it without setting an API key."
+      "description": "edit 1",
+      "notice": "edit 2"
     }
   },
   "chatBoard": {
-    "initialMessage": "What would you like to create?",
-    "inputPlaceholder": "e.g. Create a social networking registration form.",
-    "errorMessage": "Oops, an Error occurred, please check the error in devtools.",
-    "completeMessage": "Completed."
+    "initialMessage": "edit 3",
+    "inputPlaceholder": "edit 4",
+    "errorMessage": "edit 5",
+    "completeMessage": "edit 6"
   },
   "api": {
-    "apiKeyNotSet": "API Key is not set",
+    "apiKeyNotSet": "edit 7",
     "promptPrefix": "instruction"
   }
 }
