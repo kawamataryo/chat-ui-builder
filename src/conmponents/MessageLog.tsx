@@ -2,7 +2,7 @@ import { MESSAGE_ROLE } from '@/utils/constants';
 import { MessageLog } from '@/utils/types';
 import { useEffect, useRef } from 'react';
 
-const Message = ({ role, content, createdAt }: MessageLog, index: number)  => {
+const Message = ({ role, content, createdAt }: MessageLog)  => {
   const isUser = role === MESSAGE_ROLE.USER
   const positionClass = isUser ? 'chat-end' : 'chat-start'
   const iconClass = isUser ? 'bg-gradient-to-r from-[#ada996] to-[#eaeaea]' : 'bg-gradient-to-r from-cyan-500 to-blue-500'
@@ -10,7 +10,7 @@ const Message = ({ role, content, createdAt }: MessageLog, index: number)  => {
 
   return (
     <>
-    <div className={`${positionClass} chat`} key={index}>
+    <div className={`${positionClass} chat`}>
       <div className="chat-image avatar">
         <div className={`${iconClass} w-8 h-8 rounded-full !grid place-items-center`}>
           {roleIcon}
