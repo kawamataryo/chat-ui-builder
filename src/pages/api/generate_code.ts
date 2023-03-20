@@ -2,7 +2,6 @@ import { SYSTEM_PROMPT } from '../../utils/constants';
 import EnLocale from '../../../public/locales/en/common.json';
 import JaLocale from '../../../public/locales/ja/common.json';
 
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { ChatCompletionRequestMessageRoleEnum, Configuration, OpenAIApi } from "openai";
 
@@ -24,6 +23,7 @@ interface CustomNextApiRequest extends NextApiRequest {
   body: RequestBody;
 }
 
+// MEMO: いろいろ適当なので後で直す。特にエラーハンドリングが雑すぎる..
 export default async function handler(
   req: CustomNextApiRequest,
   res: NextApiResponse<Data>
